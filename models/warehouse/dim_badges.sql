@@ -1,0 +1,9 @@
+select
+  badgeId,
+  badgeName,
+  badgeDate,
+  userId,
+  badgeClass,
+  tag_based
+from
+  ${ref("_badges")}

@@ -1,0 +1,43 @@
+version: 2
+
+models:
+
+  - name: stg_answers
+    description: stack overflow answers
+    columns:
+      - name: answer_natural_key
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_questions
+    description: stack overflow questions
+    columns:
+      - name: question_natural_key
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_badges
+    description: stack overflow badges
+    columns:
+      - name: badge_natural_key
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_users
+    description: stack overflow users
+    columns:
+      - name: user_natural_key
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
