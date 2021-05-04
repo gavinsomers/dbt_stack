@@ -8,8 +8,8 @@ base as (
 
     select
 
-      cast(id as numeric) as badges_natural_key,
-      cast(user_id as numeric) as user_natural_key,
+      cast(id as numeric) as badges_nk,
+      cast(user_id as numeric) as user_nk,
 
       date as date_ts,
 

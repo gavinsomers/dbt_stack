@@ -6,9 +6,9 @@ with source as (
 
 base as (
 
-    select 
+    select
 
-      cast(id as user_natural_key,
+      cast(id as numeric) user_nk,
 
       last_access_date as last_access_ts,
       creation_date as creation_ts,
@@ -19,12 +19,12 @@ base as (
       profile_image_url,
       website_url
       up_votes,
-      
+
       cast(down_votes as numeric) as down_votes,
       cast(views as numeric) as views,
       cast(reputation as numeric) as reputation,
       cast(age as numeric) as age
-      
+
 
     from source
 

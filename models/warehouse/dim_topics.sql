@@ -1,10 +1,20 @@
-with a as
-(select split(topicSet,"|") topicSet
-FROM ${ref('_posts')}
-where topicSet is not null
+with topics as (
+
+    select
+
+      topic_fk as topic_pk,
+      topic
+
+    from {{  ref('tfm_bridge_topics')  }}
+
+    group by 1,2
+
+),
+
+final as (
+
+    select * from topics
+
 )
 
-select  row_number() over() topicId,topic
-from a,unnest(a.topicSet) topic
-group by topic
-order by topicId
+select * from final
