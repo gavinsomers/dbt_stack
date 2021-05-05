@@ -5,7 +5,7 @@ with topics as (
       topic_fk as topic_pk,
       topic
 
-    from {{  ref('tfm_bridge_topics')  }}
+    from {{  ref('bridge_topics')  }}
 
     group by 1,2
 

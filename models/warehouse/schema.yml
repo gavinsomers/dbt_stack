@@ -51,3 +51,27 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: dim_topic_sets
+    description: table of unique topic sets
+    columns:
+      - name: topic_set_pk
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: bridge_topics
+    description: bridge table between topic refernce table and fact table
+    columns:
+      - name: topic_set_fk
+        description: >
+          foreign key
+        tests:
+          - not_null
+      - name: topic_fk
+        description: >
+          foreign key
+        tests:
+          - not_null

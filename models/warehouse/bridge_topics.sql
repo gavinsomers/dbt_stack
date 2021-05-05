@@ -5,7 +5,7 @@ with topic_sets as (
       topic_set_pk as topic_set_fk,
       split(topic_set,"|") as topics
 
-    from {{  ref('tfm_topic_sets')  }}
+    from {{  ref('dim_topic_sets')  }}
 
 ),
 

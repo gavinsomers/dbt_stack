@@ -24,3 +24,7 @@ final as
     )
 
 select  * from final
+
+{% if target.name == 'dev' %}
+LIMIT 500
+{% endif %}
