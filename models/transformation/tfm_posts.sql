@@ -11,8 +11,8 @@ with posts as (
 
     select
 
-      * except(answer_nk),
-      answer_nk as post_pk
+      * except(question_nk),
+      question_nk as post_pk
 
     from {{  ref('stg_questions')  }}
 

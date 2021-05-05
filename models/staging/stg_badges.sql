@@ -8,7 +8,7 @@ final as (
 
     select
 
-      cast(id as numeric) as badges_nk,
+      cast(id as numeric) as badges_pk,
       cast(user_id as numeric) as user_nk,
 
       date as date_ts,

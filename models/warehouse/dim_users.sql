@@ -2,7 +2,7 @@ with users as (
 
     select
 
-      user_nk,
+      user_pk,
       display_name,
       description,
       location,

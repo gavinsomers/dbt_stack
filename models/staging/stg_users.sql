@@ -8,7 +8,7 @@ final as (
 
     select
 
-      cast(id as numeric) user_nk,
+      cast(id as numeric) user_pk,
 
       last_access_date as last_access_ts,
       creation_date as creation_ts,

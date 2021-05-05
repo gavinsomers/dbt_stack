@@ -8,7 +8,7 @@ final as (
 
     select
 
-    cast(id as numeric) as answer_nk,
+    cast(id as numeric) as question_nk,
     cast(accepted_answer_id as numeric) as accepted_answer_nk,
     cast(last_editor_user_id as numeric) as last_editor_nk,
     cast(owner_user_id as numeric) as owner_nk,

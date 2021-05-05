@@ -2,28 +2,8 @@ version: 2
 
 models:
 
-  - name: stg_answers
-    description: stack overflow answers
-    columns:
-      - name: answer_nk
-        description: >
-          primary key
-        tests:
-          - unique
-          - not_null
-
-  - name: stg_questions
-    description: stack overflow questions
-    columns:
-      - name: question_nk
-        description: >
-          primary key
-        tests:
-          - unique
-          - not_null
-
-  - name: stg_badges
-    description: stack overflow badges
+  - name: dim_badges
+    description: badges reference table
     columns:
       - name: badges_pk
         description: >
@@ -32,10 +12,40 @@ models:
           - unique
           - not_null
 
-  - name: stg_users
-    description: stack overflow users
+  - name: dim_posts
+    description: post reference table
+    columns:
+      - name: post_pk
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_topics
+    description: topic reference table
+    columns:
+      - name: topic_pk
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_users
+    description: user reference table
     columns:
       - name: user_pk
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: fact
+    description: badges reference table
+    columns:
+      - name: post_pk
         description: >
           primary key
         tests:

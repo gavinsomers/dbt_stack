@@ -1,0 +1,23 @@
+version: 2
+
+models:
+
+  - name: tfm_bridge_topics
+    description: bridge table between topic refernce table and fact table
+    columns:
+      - name: topic_set_pk
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: tfm_posts
+    description: unifying questions and answers into one posts table
+    columns:
+      - name: post_pk
+        description: >
+          primary key
+        tests:
+          - unique
+          - not_null
