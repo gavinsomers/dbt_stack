@@ -4,7 +4,7 @@ with source as (
 
 ),
 
-base as (
+final as (
 
     select
 
@@ -14,20 +14,19 @@ base as (
       creation_date as creation_ts,
 
       display_name,
-      about_me,
+      about_me as description,
       location,
       profile_image_url,
-      website_url
-      up_votes,
+      website_url,
 
+      cast(up_votes as numeric) as up_votes,
       cast(down_votes as numeric) as down_votes,
       cast(views as numeric) as views,
       cast(reputation as numeric) as reputation,
       cast(age as numeric) as age
 
-
     from source
 
 )
 
-select * from base
+select * from final

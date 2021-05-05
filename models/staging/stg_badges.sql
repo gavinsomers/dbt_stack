@@ -4,7 +4,7 @@ with source as (
 
 ),
 
-base as (
+final as (
 
     select
 
@@ -21,4 +21,4 @@ base as (
 
 )
 
-select * from base
+select * from final

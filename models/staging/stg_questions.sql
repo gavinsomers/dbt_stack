@@ -4,7 +4,7 @@ with source as (
 
 ),
 
-base as (
+final as (
 
     select
 
@@ -14,13 +14,13 @@ base as (
     cast(owner_user_id as numeric) as owner_nk,
     cast(parent_id as numeric) as parent_nk,
     cast(post_type_id as numeric) as post_type_nk,
+    {{  dbt_utils.surrogate_key('tags')  }} as topic_set_fk,
 
     community_owned_date as community_owned_ts,
     creation_date as creation_ts,
     last_activity_date as last_activity_ts,
     last_edit_date as last_edit_ts,
 
-    "question" as post_type,
     title,
     body,
     last_editor_display_name,
@@ -38,4 +38,4 @@ base as (
 
 )
 
-select * from base
+select * from final
