@@ -1,34 +1,26 @@
-with topic_map as
+with topic_sets as (
 
-    (
+    select
 
-      select
+      topic_set_pk as topic_set_fk,
+      split(topic_set,"|") as topics
 
-        topic_set_fk as topic_set_pk,
-        topic_set,
-        split(topic_set,"|") as topics
+    from {{  ref('tfm_topic_sets')  }}
 
-      FROM {{  ref('tfm_posts')  }}
+),
 
-      where topic_set is not null
+final as (
 
-    ),
+    SELECT
 
-final as
+      topic_set_fk,
+      {{  dbt_utils.surrogate_key('topic')  }} as topic_fk,
+      topic
 
-    (
+    FROM topic_sets, unnest(topic_sets.topics) topic
 
-      select
+    group by 1,2,3
 
-        topic_set_pk,
-        {{  dbt_utils.surrogate_key('topic')  }} as topic_fk,
-        topic_set,
-        topic
+)
 
-      from topic_map, unnest(topic_map.topics) as topic
-
-      group by 1,2,3,4
-
-    )
-
-select  * from final
+select * from final
